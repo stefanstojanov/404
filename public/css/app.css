@@ -1,0 +1,120 @@
+html,body{
+    width:100%;
+    height:100%;
+}
+.nav-btn{
+    background-color:#ee6123;;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:500;
+    letter-spacing:1px;
+    margin-right:10px;
+    color:white;
+    height:40px;
+    width:auto;
+    padding-left:10px;
+    padding-right:10px;
+    border:transparent;
+    border-radius:5px;
+}
+
+.nav-btn:hover{
+    text-decoration:none;
+    color:white;
+    background-color:#e05a21;
+}
+
+.myNav{
+    background-color:rgba(0,0,0,0.8);
+    position:fixed;
+    top:0;
+    z-index:1;
+    display:flex;
+    flex-direction:row;
+    height:60px;
+    width:80vW;
+    margin-right:10vW;
+    margin-left:10vW;
+    padding-top:10px;
+    justify-content:space-between;
+}
+
+.myNav div{
+    display:flex;
+    flex-direction:row;
+}
+
+.brand{
+    color:#ee6123;
+    font-size:25px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-left:15px;
+}
+
+.brand:hover{
+    color:#ee6123;
+    text-decoration:none;
+}
+
+nav{
+    height:100px;
+    position:relative;
+    width:100%;
+}
+
+.container{
+    margin-top:150px;
+}
+
+.btn-register{
+    background-color:#ee6123;
+    color:white;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:500 !important;
+    letter-spacing:1px;
+    padding:10px !important;
+}
+
+.card{
+    margin-bottom:100px;
+}
+
+#register-form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+}
+
+#register-form input,#register-form select{
+    width:80%;
+}
+
+.pair{
+    display:flex;
+    width:80%;
+    flex-direction:row;
+    margin-top:20px;
+}
+
+#new_institution{
+    margin-left:5px;
+    border-radius:3px;
+}
+
+#new_inst{
+    display:none;
+    width:100%;
+    padding:5px;
+}
+
+#new_inst input{
+    with:100%;
+    margin-top:20px;
+}
+
+
