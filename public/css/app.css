@@ -49,9 +49,19 @@ html,body{
 .brand{
     color:#ee6123;
     font-size:25px;
+    display: block;
     font-weight:700;
+    width: 100px !important;
+    height: 100px !important;
     letter-spacing:1px;
     margin-left:15px;
+    background-image: url('/images/srce.png');
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+}
+
+.brand img{
+    
 }
 
 .brand:hover{

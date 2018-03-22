@@ -1,5 +1,7 @@
-<div class="myNav">
-    <a class="brand" href="{{ url('/') }}">404</a>
+<div class="myNav" >
+    <a class="brand" href="{{ url('/') }}">
+        <img src="{{ asset('/images/srce.png')}}">
+    </a>
     @guest
         <div>
             <a class="nav-btn" href="{{ route('login') }}">Најава</a>
