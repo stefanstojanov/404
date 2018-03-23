@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Address;
 use App\Institution;
+use DB;
 
 class User extends Authenticatable
 {
@@ -63,6 +64,24 @@ class User extends Authenticatable
             return true;
         else
             return false;
+    }
+
+    public static function getPacient(){
+        $maticen=auth()->user();
+        $pacient=DB::table('ima_maticen')
+            ->join('users','ima_maticen.pacient_id','=','users.id')
+            ->where('maticen_id','=',$maticen->id)
+            ->first();
+        return $pacient;
+    }
+
+    public static function getMaticen(){
+        $pacient=auth()->user();
+        $maticen=DB::table('ima_maticen')
+            ->join('users','ima_maticen.maticen_id','=','users.id')
+            ->where('pacient_id','=',$pacient->id)
+            ->first();
+        return $maticen;
     }
 
 }

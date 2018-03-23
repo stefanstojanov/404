@@ -40,4 +40,12 @@
     </tr>
     @endforeach
     @endif
+
+    @if(auth()->user()->isMaticen())
+        <h1>Pacienti</h1><br>
+        @foreach($pacienti as $pacient)
+            <p>{{$pacient->name}}</p>
+            <a href="/new_msg/{{$pacient->id}}">Kontaktiraj pacient</a>
+            @endforeach
+        @endif
 </table>

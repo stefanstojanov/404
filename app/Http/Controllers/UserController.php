@@ -16,7 +16,15 @@ class UserController extends Controller
         $pendings=User::where('approved','=','1')->get();
         $results = Result::all();
         $items=Item::all();
-        return view('profile.index',compact('user','pendings','results','items'));
+        $pacienti='';
+        if($user->isMaticen())
+            $pacienti=DB::table('users')
+                        ->join('ima_maticen','users.id','=','ima_maticen.pacient_id')
+                        ->where('ima_maticen.maticen_id','=',$user->id)
+                        ->select('users.first_name as name','users.id as id')
+                        ->get();
+
+        return view('profile.index',compact('user','pendings','results','items','pacienti'));
 
     }
 

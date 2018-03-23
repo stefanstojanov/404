@@ -26,20 +26,13 @@ class PDFController extends Controller
         $current=auth()->user();
         if($current->isMaticen())
         {
-            $maticen=User::find($current->id);
-            $pacient=DB::table('ima_maticen')
-                        ->join('users','ima_maticen.pacient_id','=','users.id')
-                        ->where('maticen_id','=',$maticen->id)
-                        ->first();
+            $maticen=$current;
+            $pacient=User::getPacient();
         }
         else if($current->isPacient())
         {
-            $pacient=User::find($current->id);
-            $maticen=DB::table('ima_maticen')
-                            ->join('users','ima_maticen.maticen_id','=','users.id')
-                            ->select('users.')
-                            ->where('pacient_id','=',$pacient->id)
-                            ->first();
+            $pacient=$current;
+            $maticen=User::getMaticen();
         }
         $laboratorija=DB::table('results')
                         ->join('users','results.laborant_id','=','users.id')
