@@ -18,6 +18,7 @@ class CreateValuesTable extends Migration
             $table->integer('item_id')->unsigned();
             $table->foreign('item_id')->references('id')->on('items');
             $table->string('value');
+            $table->integer('result_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -1,6 +1,6 @@
 <div class="myNav" >
     <a class="brand" href="{{ url('/') }}">
-        <img src="{{ asset('/images/srce.png')}}">
+        <img src="{{asset('/images/srce.png')}}">
     </a>
     @guest
         <div>
@@ -9,7 +9,7 @@
         </div>
     @else
         <div>
-            <a class="nav-btn" href="#">{{ Auth::user()->first_name }}</a>
+            <a class="nav-btn" href="/profile/{{auth()->user()->id}}">{{ Auth::user()->first_name }}</a>
             <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Одјави се</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

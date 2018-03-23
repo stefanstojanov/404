@@ -52,16 +52,13 @@ html,body{
     display: block;
     font-weight:700;
     width: 100px !important;
-    height: 100px !important;
+    height: auto !important;
     letter-spacing:1px;
     margin-left:15px;
-    background-image: url('/images/srce.png');
-    background-size: 100px 100px;
-    background-repeat: no-repeat;
 }
 
 .brand img{
-    
+    height:100%;
 }
 
 .brand:hover{

@@ -36,5 +36,26 @@ class User extends Authenticatable
     protected function institution(){
         return $this->hasOne(Institution::Class);
     }
+    
+    public function isAdministrator(){
+        if($this->type=='Администратор')
+            return true;
+        else
+            return false;
+    }
+
+    public function isMaticen(){
+        if($this->type=='Матичен')
+            return true;
+        else
+            return false;
+    }
+
+    public function isLaborant(){
+        if($this->type=='Лаборант')
+            return true;
+        else
+            return false;
+    }
 
 }

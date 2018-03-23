@@ -42,6 +42,7 @@ trait AuthenticatesUsers
         }
 
         if ($this->attemptLogin($request)) {
+
             return $this->sendLoginResponse($request);
         }
 
@@ -105,6 +106,7 @@ trait AuthenticatesUsers
 
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
+
     }
 
     /**

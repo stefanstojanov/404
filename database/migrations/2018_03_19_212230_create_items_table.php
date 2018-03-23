@@ -16,8 +16,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('max');
-            $table->string('min');
+            $table->integer('max');
+            $table->integer('min');
+            $table->string('description');
+            $table->string('measure');
             $table->timestamps();
         });
     }

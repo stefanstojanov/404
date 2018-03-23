@@ -21,9 +21,12 @@
                         <input type="text" class="form-control" name="street" placeholder="Улица на живеење..."><br>
                         <input type="text" class="form-control" name="city" placeholder="Град..."><br>
                         <input type="text" class="form-control" name="gender" placeholder="Пол..."><br>
+                        <input type="date" placeholder="Choose date" name="date_born" class="form-control"
+                                   style="box-shadow:2px 2px 2px 2px #e9ece5;margin-bottom:20px;box-shadow:none;">
                         <select name="type" class="form-control">
                             <option value="Матичен">Матичен</option>
                             <option value="Лаборант">Лаборант</option>
+                            <option value="Администратор">Администратор</option>
                         </select>
                         <br>
                         <div class="pair">

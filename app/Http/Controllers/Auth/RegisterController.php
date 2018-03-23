@@ -25,24 +25,29 @@ class RegisterController extends Controller
 
     protected function validator(array $data)
     {
-        if($data['new_inst_confirm']==="new")
-        return Validator::make($data, [
-            'име' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'inst_city'=>'required',
-        ]);
+        if ($data['new_inst_confirm'] === "new")
+            return Validator::make($data, [
+                'име' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed',
+                'inst_city' => 'required',
+                'street' => 'required',
+                'city' => 'required',
+                'type' => 'required',
+                'gender' => 'required',
+                'date_born' => 'required',
+                'mobile' => 'required',
+                'EMBG' => 'required|min:13',
+
+
+            ]);
 
         else
-         return Validator::make($data, [
-            'име' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'type'=>'required',
+            return Validator::make($data, [
+                'име' => 'required|string|max:255',
 
-    ]);
-    }
-
+            ]);
+             }
     protected function create(array $data)
     {
         Address::create(['city'=>request('city'),'street'=>request('street')]);
@@ -64,6 +69,13 @@ class RegisterController extends Controller
             'address_id'=>$address_id,
             'institution_id'=>$data['institution'],
             'type'=>$data['type'],
+            'date_born'=>$data['date_born'],
+            'gender'=>$data['gender'],
+            'mobile'=>$data['mobile'],
+            'last_name'=>$data['last_name'],
+             'EMBG'=>$data['EMBG'],
+
+
 
         ]);
     }

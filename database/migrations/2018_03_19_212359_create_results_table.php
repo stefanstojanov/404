@@ -18,8 +18,8 @@ class CreateResultsTable extends Migration
             $table->string('details');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('values_id')->unsigned();
-            $table->foreign('values_id')->references('id')->on('values');
+            $table->integer('laborant_id')->unsigned();
+            $table->foreign('laborant_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -6,6 +6,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/profile/{user}','UserController@index');
+Route::get('/approve/{id}','AdministratorController@approve');
+Route::get('/decline/{id}','AdministratorController@decline');
+Route::get('/checkApproved','UserController@check');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/rezultat', function(){

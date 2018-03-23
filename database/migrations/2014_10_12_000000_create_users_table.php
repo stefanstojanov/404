@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('address_id')->nullable();
             $table->string('EMBG')->nullable();
             $table->string('mobile')->nullable();
+            $table->string('approved')->default('1');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
-peroooou
+@if(!empty($message))
+    <h1>{{$message}}</h1>
+    @endif
 @endsection
 

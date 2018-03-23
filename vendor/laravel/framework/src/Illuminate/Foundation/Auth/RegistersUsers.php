@@ -20,7 +20,6 @@ trait RegistersUsers
     {
 
         $institutions=Institution::all();
-
         return view('auth.register',compact('institutions'));
     }
 

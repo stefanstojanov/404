@@ -66,4 +66,7 @@
         </div>
     </div>
 </div>
+    @if(session('error'))
+    <h1 style="color:red;">{{session('error')}}</h1>
+    @endif
 @endsection
