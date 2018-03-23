@@ -14,7 +14,7 @@ use App\User;
 class PDFController extends Controller
 {
     public function napravi_pdf($result){
-        $rezultat=DB::table('results')
+        $items=DB::table('results')
                         ->join('users','results.user_id','=','users.id')
                         ->join('values','results.id','=','values.result_id')
                         ->join('items','values.item_id','=','items.id')
@@ -26,7 +26,7 @@ class PDFController extends Controller
         {
             $maticen=User::find($current->id);
             $pacient=DB::table('ima_maticen')
-                        ->join('users','ima_maticen.maticen_id','=','users.id')
+                        ->join('users','ima_maticen.pacient_id','=','users.id')
                         ->where('maticen_id','=',$maticen->id)
                         ->first();
         }
@@ -39,7 +39,7 @@ class PDFController extends Controller
                             ->first();
         }
 
-        $pdf = PDF::loadView('PDF.pdf', compact('rezultat','maticen','pacient'));
+        $pdf = PDF::loadView('PDF.pdf', compact('items','maticen','pacient'));
         return $pdf->download('rezultat.pdf');
     }
 }

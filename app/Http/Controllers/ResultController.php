@@ -18,7 +18,7 @@ class ResultController extends Controller
         $id=auth()->user()->id;
         Result::create([
             'laborant_id'=>$id,
-            'user_id'=>'1',
+            'user_id'=>'8',
             'details'=>'pero',
         ]);
 

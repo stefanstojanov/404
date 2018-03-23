@@ -16,16 +16,18 @@
 	<table>
 		<tr>
 			<th>Name</th>
+			<th>Item</th>
 			<th>Value</th>
 			<td>Maticen</td>
-			<td>Pacient</td>
 		</tr>
-		@foreach($rezultat as $result)
-			<td>{{$result->first_name}}</td>
-			<td>{{$result->value}}</td>
-			<td>{{$maticen->first_name}}</td>
+		<tr>
 			<td>{{$pacient->first_name}}</td>
-			@endforeach
+		@foreach($items as $item)
+			<td>{{$item->item_name}}</td>
+			<td>{{$item->value}}</td>
+		@endforeach
+			<td>{{$maticen->first_name}}</td>
+		</tr>
 	</table>
 
 </body>
