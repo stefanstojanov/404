@@ -13,3 +13,4 @@ Route::get('/rezultat', function(){
 });
 
 Route::get('/napravi_pdf','PDFController@napravi_pdf');
+Route::get('/showResults','showResults@pokazi_grafa');
