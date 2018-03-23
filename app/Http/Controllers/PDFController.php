@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use PDF;
 use App\Result;
 use App\Institution;
+use App\User;
 
 class PDFController extends Controller
 {

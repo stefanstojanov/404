@@ -57,5 +57,12 @@ class User extends Authenticatable
         else
             return false;
     }
+    
+    public function isPacient(){
+        if($this->type=='пациент')
+            return true;
+        else
+            return false;
+    }
 
 }
