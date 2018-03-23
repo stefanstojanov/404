@@ -9,28 +9,23 @@
                 <div class="card-header">Register</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" id="register-form">
+                    <form method="POST" action="{{ url('/vnesuvanje_na_pacient') }}" id="register-form">
                         {{csrf_field()}}
                         <input type="text" class="form-control" name="име" placeholder="Име..."><br>
-                        <input type="text" class="form-control" name="last_name" placeholder="Презиме..."><br>
-                        <input type="email" class="form-control" name="email" placeholder="Емаил..."><br>
-                        <input type="password" class="form-control" name="password" placeholder="Лозинка..."><br>
-                        <input type="password" class="form-control" name="password_confirmation" placeholder="Потврди лозинка..."><br>
-                        <input type="text" class="form-control" name="embg" placeholder="EMBG..."><br>
-                        <input type="text" class="form-control" name="mobile" placeholder="Мобилен..."><br>
-                        <input type="text" class="form-control" name="street" placeholder="Улица на живеење..."><br>
-                        <input type="text" class="form-control" name="city" placeholder="Град..."><br>
-                        <input type="text" class="form-control" name="gender" placeholder="Пол..."><br>
-                        <input type="date" placeholder="Choose date" name="date_born" class="form-control"
+                        <input type="text" class="form-control" name="презиме" placeholder="Презиме..."><br>
+                        <input type="email" class="form-control" name="Имејл" placeholder="Емаил..."><br>
+                        <input type="password" class="form-control" name="лозинка" placeholder="Лозинка..."><br>
+                        <input type="password" class="form-control" name="лозинка_confirmation" placeholder="Потврди лозинка..."><br>
+                        <input type="text" class="form-control" name="матичен" placeholder="EMBG..."><br>
+                        <input type="text" class="form-control" name="Мобилен" placeholder="Мобилен..."><br>
+                        <input type="text" class="form-control" name="Улица" placeholder="Улица на живеење..."><br>
+                        <input type="text" class="form-control" name="Град" placeholder="Град..."><br>
+                        <input type="text" class="form-control" name="Пол" placeholder="Пол..."><br>
+                        <input type="date" placeholder="Choose date" name="Дата" class="form-control"
                                    style="box-shadow:2px 2px 2px 2px #e9ece5;margin-bottom:20px;box-shadow:none;">
-                        <select name="type" class="form-control">
-                            <option value="Матичен">Матичен</option>
-                            <option value="Лаборант">Лаборант</option>
-                            <option value="Администратор">Администратор</option>
-                        </select>
                         <br>
                         <div class="pair">
-                            <select class="form-control" name="institution" id="institution"><br>
+                            <select class="form-control" name="институција" id="institution"><br>
                                 <option value="">Избери институција</option>
                             @foreach($institutions as $institution)
                                 <option value="{{$institution->id}}">{{$institution->name}}</option>
@@ -48,7 +43,7 @@
                             </div>
 
                         </div>
-
+                        <input type="hidden" name="approved" value="2">
                         <button type="submit" class="btn btn-register">
                             Потврди
                         </button>
