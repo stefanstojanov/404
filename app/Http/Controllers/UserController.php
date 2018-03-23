@@ -7,6 +7,7 @@ use App\Institution;
 use App\Address;
 use App\Result;
 use App\Item;
+use DB;
 
 class UserController extends Controller
 {
@@ -62,7 +63,7 @@ class UserController extends Controller
         }
         
         
-        $post=User::create([
+        $user=User::create([
             'first_name' => request('име'),
              'last_name' => request('презиме'),
              'email' => request('Имејл'),
@@ -72,11 +73,17 @@ class UserController extends Controller
              'city' => request('Град'),
              'gender' => request('Пол'),
              'date_born' => request('Дата'),
+            'EMBG'=>request('матичен'),
             'institution_id'=>$institution,
             'address_id'=>$address_id,
             'type'=>'пациент'
         ]);
-        
+
+            DB::table('ima_maticen')->insert([
+                'maticen_id'=>auth()->user()->id,
+                'pacient_id'=>$user->id
+            ]);
+
     }
     
     

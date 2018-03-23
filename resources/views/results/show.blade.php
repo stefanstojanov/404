@@ -5,3 +5,4 @@
     @endforeach
 
     @endif
+<a href="/napravi_pdf/{{$result->id}}">Printaj PDF</a>

@@ -22,14 +22,15 @@ class showResults extends Controller
         $dates_array=[];
         $max_gorna=2*$max;
         $max_gorna_array=[];
+        $user_id=auth()->user()->id;
         $values=DB::table('results')
                     ->join('values','results.id','=','values.result_id')
                     ->join('items','values.item_id','=','items.id')
-                    ->where('results.user_id','=',auth()->user()->id)
+                    ->where('results.user_id','=',$user_id)
                     ->where('items.id','=',$item_id)
                     ->select('items.name as name','items.max as max','items.min as min','results.created_at as date','values.value as value')
                     ->get();
-        $results_count=Result::where('user_id','=','1')->count();
+        $results_count=Result::where('user_id','=',$user_id)->count();
         for($i=0;$i<$results_count;$i++)
         {
             $max_gorna_array[$i]=$max_gorna;

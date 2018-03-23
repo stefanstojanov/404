@@ -17,7 +17,7 @@ Route::get('/rezultat', function(){
     return view('PDF.pdf');
 });
 
-Route::get('/napravi_pdf','PDFController@napravi_pdf');
+Route::get('/napravi_pdf/{result}','PDFController@napravi_pdf');
 Route::post('/showResults','showResults@pokazi_grafa');
 Route::get('vnesi_pacient','UserController@vnesi_pacient');
 Route::post('/vnesuvanje_na_pacient','UserController@vnesuvanje_na_pacient');

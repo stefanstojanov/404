@@ -46,6 +46,6 @@ class ResultController extends Controller
                     ->where('values.result_id','=',$result->id)
                     ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value')
                     ->get();
-        return view('results.show',compact('stavki'));
+        return view('results.show',compact('stavki','result'));
     }
 }
