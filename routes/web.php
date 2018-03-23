@@ -7,3 +7,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/rezultat', function(){
+    return view('PDF.pdf');
+});
+
+Route::get('/napravi_pdf','PDFController@napravi_pdf');
