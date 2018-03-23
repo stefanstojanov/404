@@ -16,7 +16,7 @@
                         <input type="email" class="form-control" name="email" placeholder="Емаил..."><br>
                         <input type="password" class="form-control" name="password" placeholder="Лозинка..."><br>
                         <input type="password" class="form-control" name="password_confirmation" placeholder="Потврди лозинка..."><br>
-                        <input type="text" class="form-control" name="embg" placeholder="EMBG..."><br>
+                        <input type="text" class="form-control" name="EMBG" placeholder="EMBG..."><br>
                         <input type="text" class="form-control" name="mobile" placeholder="Мобилен..."><br>
                         <input type="text" class="form-control" name="street" placeholder="Улица на живеење..."><br>
                         <input type="text" class="form-control" name="city" placeholder="Град..."><br>

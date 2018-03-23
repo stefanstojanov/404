@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
             $table->date('date_born')->nullable();
             $table->integer('institution_id')->nullable();
             $table->integer('address_id')->nullable();
-            //$table->string('maticen');
+            $table->string('EMBG');
             $table->string('mobile')->nullable();
-            $table->string('approved')->nullable();
+            $table->string('approved')->default('1');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -37,6 +37,7 @@ class RegisterController extends Controller
                 'gender' => 'required',
                 'date_born' => 'required',
                 'mobile' => 'required',
+                'EMBG'=>'required',
 
 
             ]);
@@ -72,9 +73,7 @@ class RegisterController extends Controller
             'gender'=>$data['gender'],
             'mobile'=>$data['mobile'],
             'last_name'=>$data['last_name'],
-
-
-
+            'EMBG'=>$data['EMBG'],
         ]);
     }
 }

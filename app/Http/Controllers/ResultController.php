@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Result;
 use App\Value;
+use DB;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -17,7 +18,7 @@ class ResultController extends Controller
         $id=auth()->user()->id;
         Result::create([
             'laborant_id'=>$id,
-            'user_id'=>'3',
+            'user_id'=>'1',
             'details'=>'pero',
         ]);
 
@@ -35,5 +36,16 @@ class ResultController extends Controller
             }
         }
 
+    }
+
+    public function show($id){
+        $result=Result::find($id);
+        $stavki=DB::table('values')
+                    ->join('results','values.result_id','=','results.id')
+                    ->join('items','values.item_id','=','items.id')
+                    ->where('values.result_id','=',$result->id)
+                    ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value')
+                    ->get();
+        return view('results.show',compact('stavki'));
     }
 }

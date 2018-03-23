@@ -19,6 +19,15 @@
 @endif
 
 <h1>Резултати</h1>
+<form action="/showResults" method="post">
+    {{csrf_field()}}
+    <select name="item_id">
+        @foreach($items as $item)
+        <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+    </select>
+    <button type="submit">Pero</button>
+</form>
 <table>
     <tr>
         <th>Дата на резултат</th>
@@ -27,7 +36,7 @@
     @if(!empty($results))
     @foreach($results as $result)
     <tr>
-        <td>{{$result->created_at}}</td>
+        <td><a href="/result/{{$result->id}}">{{$result->created_at}}</a></td>
     </tr>
     @endforeach
     @endif

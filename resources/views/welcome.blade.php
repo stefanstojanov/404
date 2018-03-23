@@ -19,6 +19,10 @@
 @endif
 
 @endif
+
+    @if(!empty($error))
+        {{$error}}
+    @endif
 @endsection
 
 

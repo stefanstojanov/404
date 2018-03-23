@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Institution;
 use App\Address;
 use App\Result;
+use App\Item;
 
 class UserController extends Controller
 {
@@ -13,22 +14,22 @@ class UserController extends Controller
         $user=User::find($user);
         $pendings=User::where('approved','=','1')->get();
         $results = Result::all();
-
-        return view('profile.index',compact('user','pendings','results'));
+        $items=Item::all();
+        return view('profile.index',compact('user','pendings','results','items'));
 
     }
 
     public function check(){
-        /*if(auth()->user()->approved==='2')
+        if(auth()->user()->approved==='2')
             return redirect('/');
         else
         {
             auth()->logout();
-            Request::session()->flash('error', 'Some error message');
-            return redirect()->back();
-        }*/
-        return redirect('/');
+            $error='errorce';
+            return view('welcome',compact('errorce'));
+        }
     }
+
     public function vnesi_pacient(){
         
         $institutions=Institution::all();
