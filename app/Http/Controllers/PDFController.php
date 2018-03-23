@@ -26,6 +26,7 @@ class PDFController extends Controller
         {
             $maticen=User::find($current->id);
             $pacient=DB::table('ima_maticen')
+                        ->join('users','ima_maticen.maticen_id','=','users.id')
                         ->where('maticen_id','=',$maticen->id)
                         ->first();
         }
@@ -33,9 +34,11 @@ class PDFController extends Controller
         {
             $pacient=User::find($current->id);
             $maticen=DB::table('ima_maticen')
+                            ->join('users','ima_maticen.maticen_id','=','users.id')
                             ->where('pacient_id','=',$pacient->id)
                             ->first();
         }
+
         $pdf = PDF::loadView('PDF.pdf', compact('rezultat','maticen','pacient'));
         return $pdf->download('rezultat.pdf');
     }
