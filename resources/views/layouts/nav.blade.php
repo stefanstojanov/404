@@ -1,8 +1,12 @@
 <div class="myNav" >
     <div class="left-side">
+            <a class="navbtn" href="/">
+                <i class="fa fa-home" style="font-size:21px;"></i> Home
+            </a>
             <a class="navbtn" href="/profile/{{auth()->user()->id}}">
                 <i class="fa fa-heartbeat" style="font-size:21px;"></i> {{ Auth::user()->first_name }}
             </a>
+
             @if(Auth::check() && auth()->user()->isLaborant())
                 <a class="navbtn" href="/novi_rez"><i class="fa fa-files-o" style="font-size:21px;"></i> Vnesi rezultati</a>
                 <a class="navbtn" href="/svoi_rez/{{auth()->user()->id}}"><i class="fa fa-clipboard" style="font-size:21px;"></i> Tvoi vnesovi</a>

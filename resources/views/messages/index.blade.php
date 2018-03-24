@@ -31,7 +31,7 @@
                         @foreach($messages as $message)
                             <tr  <?php if($message->opened=="opened"){?> style="color:grey;"<?php } ?>>
 
-                                <td><a href="/message/{{$message->id}}"  <?php if($message->opened=="opened"){?> style="color:grey;"<?php } ?>>{{decrypt($message->title)}}</a></td>
+                                <td><a href="/message/{{$message->id}}"  <?php if($message->opened=="opened"){?> style="color:grey;"<?php } ?>>{{$message->title}}</a></td>
                                 <td><a href="/profile/{{$message->sender}}"  <?php if($message->opened=="opened"){?> style="color:grey;"<?php } ?>>{{$message->sender}}</a></td>
                                 <td>{{$message->created_at}}</td>
                                 <td>{{$message->opened}}</td>

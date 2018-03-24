@@ -64,8 +64,10 @@ class UserController extends Controller
             Institution::create(['name'=>request('inst_name'),'address_id'=>$address_inst_id,]);
             $institution=Institution::getLast();
         }
-        
-        
+
+        /*$this->validate(request()[
+
+        ]);*/
         
         $user=User::create([
             'first_name' => request('име'),
