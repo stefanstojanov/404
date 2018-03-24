@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('maticen',['only'=>['vnesi_pacient','vnesuvanje_na_pacient','edit','update']]);
+        $this->middleware('Maticen',['only'=>['vnesi_pacient','vnesuvanje_na_pacient','edit','update']]);
     }
 
     public function index($user){

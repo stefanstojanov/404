@@ -305,6 +305,24 @@ nav{
     flex-direction:row;
 }
 
+.register_pair{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.register_pair label{
+    margin-right:15px;
+    width:25%;
+}
+
+.register_pair input{
+    width:75% !important;
+}
+
 .login_pair label{
     width:25%;
 }

@@ -4,9 +4,6 @@
     <div class="container" style="display:flex;align-items:center;justify-content:center;height:100%;">
             <div class="card" style="width:40%;box-shadow:2px 2px 5px 0.05px #00a4a2;border:1px solid #00a4a2;">
                 <div class="card-header" style="color:white;background-color:#00a4a2;">Login</div>
-                <!--<div style="background-image:url({{asset('/images/login.jpg')}});background-size:100% 100%;height:100px;width:150px;margin-left:auto;margin-right:auto;margin-top:30px;background-repeat:no-repeat;border-radius:30%;border:1px solid #00a4a2;">
-                </div>
-                <hr style="background-color:#00a4a2;">-->
                 <div class="card-body" style="padding:25px;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
