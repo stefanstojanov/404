@@ -24,7 +24,7 @@
     <tr>
         <td>{{$pacient->first_name}} {{$pacient->last_name}}</td>
         <td>{{$maticen->first_name}} {{$maticen->last_name}}</td>
-        <td>{{$date}}</td>
+        <td>{{$date->format('l/ jS /F h:i:s A')}}</td>
         <td>{{$laboratorija->city}}</td>
         <td>{{$laboratorija->institucija}}</td>
     </tr>

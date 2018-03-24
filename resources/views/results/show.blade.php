@@ -15,7 +15,7 @@
     <tr>
     <td>{{$laboratorija->city}}</td>
     <td>{{$laboratorija->institucija}}</td>
-    <td>{{$result->created_at}}</td>
+    <td>{{$result->created_at->format('l/ jS /F h:i:s A')}}</td>
         <td>{{$user->first_name}}</td>
     </tr>
 </table>
