@@ -2,7 +2,7 @@
     @section('content')
 
         <div class="profile-container">
-            <a class="profile-card" style="bordeR:1px solid #00a4a2;">
+            <div class="profile-card">
                 <div class="label-pair">
                   <h3>Име :&nbsp</h3>
                   <h3 style="margin-right:50px;">{{$user->first_name}}</h3>
@@ -48,14 +48,22 @@
         @endif
 
            @if($user->isAdministrator())
-                    <h1>Pending users</h1>
+                <center>  
+                <h1>Pending users</h1>
+                <table class="table table-bordered" style="width:40%; margin-top:10px; text-align:center;">
+                 <tr style="background-color:#00a4a2; color:white">
+                    <th>Корисник</th>
+                    <th>Акција</th>
+                </tr>
                     @foreach($pendings as $pending)
-                        <p>{{$pending->first_name}}</p>
-                        <p>{{$pending->approved}}</p>
-                        <a href="/approve/{{$pending->id}}">Approve user</a>
-                        <a href="/decline/{{$pending->id}}">Decline user</a>
-                        <hr>
+                    <tr>
+                        <td>{{$pending->first_name}}</td>
+                        <td><button class="btn"><a href="/approve/{{$pending->id}}">Approve user</a></button>
+                        <button class="btn"><a href="/decline/{{$pending->id}}">Decline user</a></button></td>
+                    </tr> 
                     @endforeach
+                </table>
+                </center>  
             @endif
 
 
