@@ -90,6 +90,6 @@ class showResults extends Controller
         ->options([]);
 
 
-        return view('showResults.showResults', compact('chartjs','values'));
+        return view('results.showResults', compact('chartjs','values'));
     }
 }

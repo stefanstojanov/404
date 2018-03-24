@@ -1,0 +1,1 @@
+Pocituvani vasite rezultati od laboratorija se gotovi. Ve molime posetete go vasiot maticen ili proverete go vasiot profil za pregled na istite.

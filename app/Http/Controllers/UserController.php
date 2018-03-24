@@ -35,14 +35,14 @@ class UserController extends Controller
         {
             auth()->logout();
             $error='errorce';
-            return view('welcome',compact('errorce'));
+            return view('welcome',compact('error'));
         }
     }
 
     public function vnesi_pacient(){
         
         $institutions=Institution::all();
-        return view('Maticen.vnesi_pacient',compact('institutions'));
+        return view('profile.vnesi_pacient',compact('institutions'));
     }
     
     public function vnesuvanje_na_pacient(Request $request){

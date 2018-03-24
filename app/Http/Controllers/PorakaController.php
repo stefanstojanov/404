@@ -22,5 +22,6 @@ class PorakaController extends Controller
         "body" => "Napravi go preku laravel"
     )
 );
+        return redirect('/');
     }
 }

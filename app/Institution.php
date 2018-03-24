@@ -10,7 +10,7 @@ class Institution extends Model
     protected $fillable=['name','address_id','city'];
 
     protected function User(){
-        return $this->belongsTo(User::Class);
+        return $this->hasMany(User::Class);
     }
 
     public static function getLast(){

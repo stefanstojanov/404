@@ -2,7 +2,7 @@
 
 
 //Home routes
-Route::get('/', function () {return view('welcome');});
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -26,11 +26,19 @@ Route::post('/showResults','showResults@pokazi_grafa');
 Route::get('/novi_rez','ResultController@create');
 Route::post('/vnesi_rez','ResultController@store');
 Route::get('/result/{id}','ResultController@show');
+Route::get('/svoi_rez','ResultController@svoi');
 
 
 //Message routes
 Route::get('/new_msg/{id}','MessageController@create');
 Route::post('/send_msg','MessageController@store');
+
+
+Route::get('/mail_rez/{id}','mailController@rezultati');
+
+//sms
+Route::get('/pratisms','PorakaController@isprati');
+
 
 
 

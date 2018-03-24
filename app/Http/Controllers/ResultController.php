@@ -5,37 +5,46 @@ use App\Item;
 use App\Result;
 use App\Value;
 use DB;
+use App\User;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
 {
     public function create(){
         $items=Item::all();
-        return view('rezultati.create',compact('items'));
+        $maticni=User::where('type','=','Матичен')->get();
+        $pacienti=DB::table('users')
+                        ->join('ima_maticen','users.id','=','ima_maticen.pacient_id')
+                        ->where('users.type','=','пациент')
+                        ->select('ima_maticen.maticen_id as maticen_id','users.first_name as first_name','users.id as id')
+                        ->get();
+
+        return view('results.create',compact('items','maticni','pacienti'));
     }
 
     public function store(Request $request){
         $id=auth()->user()->id;
-        Result::create([
+        $result=Result::create([
             'laborant_id'=>$id,
-            'user_id'=>'8',
-            'details'=>'pero',
+            'user_id'=>request('user_id'),
+            'details'=>'',
         ]);
 
-        $result_id=Result::orderBy('id','desc')->latest()->first()->id;
+        $user=User::where('id','=',$result->user_id)->first();
 
         $input=$request->all();
         for($i=1;$i<=(count($input)-1)/3;$i++){
             if($input["value".$i.""]!="")
             {
                 Value::create([
-                    'result_id'=>$result_id,
+                    'result_id'=>$result->id,
                     'item_id'=>$input['item_id'.$i.""],
                     'value'=>$input['value'.$i.""]
                 ]);
             }
         }
 
+        return redirect("/mail_rez/".$user->id);
     }
 
     public function show($id){
@@ -47,5 +56,14 @@ class ResultController extends Controller
                     ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value')
                     ->get();
         return view('results.show',compact('stavki','result'));
+    }
+
+    public function svoi(){
+        $user=auth()->user();
+        if($user->isLaborant())
+            $rezultati=Result::where('laborant_id','=',$user->id)->get();
+        else if($user->isPacient())
+            $rezultati=Result::where('user_id','=',$user->id)->get();
+        return view('results.svoi',compact('rezultati'));
     }
 }

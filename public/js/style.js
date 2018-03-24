@@ -22,3 +22,25 @@ $(function(){
 
     });
 });
+
+
+function smeni_pacient(maticen){
+    $("#pacient > option").each(function() {
+        if(this.id!==maticen.value)
+            $(this).attr("hidden",true);
+        else
+            $(this).attr("hidden",false);
+    });
+}
+
+/*
+$('#maticen').on('change',function(){
+    alert("pero");
+    $('#pacient').each(function(){
+        console.log($(this).id);
+        if($(this).id!==$('#maticen:selected').id)
+        {
+            $(this).attr("hidden");
+        }
+    });
+});*/

@@ -124,4 +124,29 @@ nav{
     margin-top:20px;
 }
 
+.profile-container {
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card{
+    width:70%;
+}
+
+.label-pair{
+    display:flex;
+    flex-direction:row;
+}
+
+.label-pair h3{
+    font-size:20px !important;
+    margin:0;
+    padding:0;
+}
+
 

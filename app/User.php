@@ -35,7 +35,7 @@ class User extends Authenticatable
     }
 
     protected function institution(){
-        return $this->hasOne(Institution::Class);
+        return $this->belongsTo(Institution::Class);
     }
     
     public function isAdministrator(){
