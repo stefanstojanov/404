@@ -62,12 +62,12 @@
                             <label style="width:100%;margin-bottom:0;" align="left">Institucija</label>
                             <div class="pair" style="width:100%;margin-top:10px;">
                                 <select class="form-control" name="institution" id="institution"><br>
-                                    <option value="">Избери институција</option>
+                                    <option value="">Izberi institucija</option>
                                     @foreach($institutions as $institution)
                                         <option value="{{$institution->id}}">{{$institution->name}}</option>
                                     @endforeach
                                 </select>
-                                <button class="btn ml-2" name="new_institution" id="new_institution">Внеси нова</button>
+                                <button class="btn ml-2" name="new_institution" id="new_institution">Vnesi nova</button>
                             </div>
 
                             <div class="pair mt-0" style="width:100%;">

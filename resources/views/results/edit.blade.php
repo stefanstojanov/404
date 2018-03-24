@@ -3,7 +3,7 @@
     @section('content')
 <center>
 <div class="card" style="border:1px solid #00a4a2; margin-top:100px; width:40%">
-    <div class="card-header" style="width:100%; background-color:00a4a2; color:white;"> Измена на веќе постоечки резултат </div>
+    <div class="card-header" style="width:100%; background-color:00a4a2; color:white;"> Izmena na veke postoecki rezultat </div>
     <div class="card-body">    
     <form method="post" action="/edit_result">
             {{csrf_field()}}

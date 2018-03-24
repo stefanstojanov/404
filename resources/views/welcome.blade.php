@@ -4,6 +4,7 @@
             <div class="background">
                 <div class="session_pair">
                     @if(Auth::check())
+                    @include('layouts.nav')
                         @endif
                     <div class="img_pair">
                         <img src="{{asset('/images/srce.png')}}">
