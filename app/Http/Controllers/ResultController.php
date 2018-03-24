@@ -85,12 +85,17 @@ class ResultController extends Controller
                         ->where('results.id','=',$result->id)
                         ->select('institutions.name as institucija','addresses.city as city')
                         ->first();
+
+        $user=DB::table('results')
+                        ->join('users','results.user_id','=','users.id')
+                        ->where('results.id','=',$result->id)
+                        ->first();
         
-        return view('results.show',compact('stavki','result','laboratorija'));
+        return view('results.show',compact('stavki','result','laboratorija','user'));
     }
 
-    public function svoi(){
-        $user=auth()->user();
+    public function svoi($id){
+        $user=User::find($id);
         if($user->isLaborant())
             $rezultati=Result::where('laborant_id','=',$user->id)->get();
         else if($user->isPacient())

@@ -28,7 +28,7 @@ Route::post('/showResults','showResults@pokazi_grafa');
 Route::get('/novi_rez','ResultController@create');
 Route::post('/vnesi_rez','ResultController@store');
 Route::get('/result/{id}','ResultController@show');
-Route::get('/svoi_rez','ResultController@svoi');
+Route::get('/svoi_rez/{id}','ResultController@svoi');
 Route::get('/result_edit/{id}','ResultController@edit');
 Route::post('/edit_result','ResultController@update');
 

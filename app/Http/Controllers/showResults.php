@@ -22,7 +22,7 @@ class showResults extends Controller
         $dates_array=[];
         $max_gorna=2*$max;
         $max_gorna_array=[];
-        $user_id=auth()->user()->id;
+        $user_id=request('user_id');
         $values=DB::table('results')
                     ->join('values','results.id','=','values.result_id')
                     ->join('items','values.item_id','=','items.id')
@@ -30,16 +30,19 @@ class showResults extends Controller
                     ->where('items.id','=',$item_id)
                     ->select('items.name as name','items.max as max','items.min as min','results.created_at as date','values.value as value')
                    ->get();
+
         $results_count=Result::where('user_id','=',$user_id)->count();
+
         for($i=0;$i<$results_count;$i++)
         {
             $max_gorna_array[$i]=$max_gorna;
              $max_array[$i]=$max;
             $min_array[$i]=$min;
 
-         $values_array[$i]=$values[$i]->value; }
-        /*$dates_array[$i]=$values[$i]->date;
-    }
+         $values_array[$i]=$values[$i]->value;
+         $dates_array[$i]=$values[$i]->date;
+        }
+
     $chartjs = app()->chartjs
     ->name('lineChartTest')
     ->type('line')
@@ -89,8 +92,6 @@ class showResults extends Controller
 
     ])
     ->options([]);
-    */
-        print_r($values);
-        //return view('results.showResults', compact('chartjs','values'));
+        return view('results.showResults', compact('chartjs','values'));
     }
 }

@@ -51,21 +51,11 @@ class UserController extends Controller
     }
     
     public function vnesuvanje_na_pacient(Request $request){
-        $this->validate(request(),[
-             'име' => 'required',
-             'презиме' => 'required',
-             'Имејл' => 'required',
-             'лозинка' => 'required|string|min:6|confirmed',
-             'Мобилен' => 'required',
-             'Улица' => 'required',
-             'Град' => 'required',
-             'Пол' => 'required',
-             'Дата' => 'required'
-        ]);
 
-        Address::create(['city'=>request('Град'),'street'=>request('Улица')]);
+
+        Address::create(['city'=>request('city'),'street'=>request('street')]);
         $address_id=Address::getLast();
-        $institution=request('институција');
+        $institution=request('institution');
         if(request('new_inst_confirm')==="new")
         {
             Address::create(['street'=>request('inst_address'),'city'=>request('inst_city')]);
@@ -76,17 +66,18 @@ class UserController extends Controller
         }
         
         
+        
         $user=User::create([
             'first_name' => request('име'),
-             'last_name' => request('презиме'),
-             'email' => request('Имејл'),
-             'password' => bcrypt(request('лозинка')),
-             'mobile' => request('Мобилен'),
-             'street' => request('Улица'),
-             'city' => request('Град'),
-             'gender' => request('Пол'),
-             'date_born' => request('Дата'),
-            'EMBG'=>request('матичен'),
+             'last_name' => request('last_name'),
+             'email' => request('email'),
+             'password' => bcrypt(request('password')),
+             'mobile' => request('mobile'),
+             'street' => request('street'),
+             'city' => request('city'),
+             'gender' => request('gender'),
+             'date_born' => request('date_born'),
+            'EMBG'=>request('EMBG'),
             'institution_id'=>$institution,
             'address_id'=>$address_id,
             'type'=>'пациент'
@@ -96,7 +87,7 @@ class UserController extends Controller
                 'maticen_id'=>auth()->user()->id,
                 'pacient_id'=>$user->id
             ]);
-
+        return redirect('/profile/'.$user->id);
     }
 
     public function edit($id){

@@ -9,13 +9,14 @@
     <th>Град</th>
     <th>Име на лабораторијата</th>
     <th>Краирано на</th>
+        <th>Корисник</th>
     </tr>
 
     <tr>
     <td>{{$laboratorija->city}}</td>
     <td>{{$laboratorija->institucija}}</td>
     <td>{{$result->created_at}}</td>
-
+        <td>{{$user->first_name}}</td>
     </tr>
 </table>
     
@@ -25,6 +26,7 @@
     <th>Вредност</th>
     <th>Мерна единица</th>
     <th>Мин-Макс</th>
+
     </tr>
 @foreach($stavki as $stavka)
     <tr>
@@ -32,6 +34,7 @@
     <td>{{$stavka->value}}</td>
     <td>{{$stavka->measure}}</td>
     <td>{{$stavka->min}}-{{$stavka->max}}</td>
+
         
     @endforeach
     @endif

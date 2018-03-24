@@ -50,14 +50,21 @@
                 <h1>Провери историја на резултати за :</h1>
         <form action="/showResults" method="post">
             {{csrf_field()}}
-            <div class="form-group">
-            <select name="item_id" class="form-control" style="width:40%">
-                @foreach($items as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
-                    @endforeach
-            </select>
+            <div class="d-flex justify-content-center align-content-center mb-2">
+                <label class="mr-3">Item</label>
+                <select name="item_id" class="form-control" style="width:40%">
+                    @foreach($items as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                </select>
+                <input type="hidden" name="user_id" value="{{$user->id}}">
                 </div>
-            <button type="submit" class="btn">Провери</button>
+            <div class="d-flex" style="width:100%;align-items:center;justify-content:center;">
+                <button type="submit" class="btn" style="margin-right:15px;">Proveri item</button>
+                @if(auth()->user()->isMaticen() && $user->id!==auth()->user()->id)
+                    <button class="btn"><a href="/svoi_rez/{{$user->id}}" style="color:inherit;">Proveri rezultati za {{$user->first_name}}</a></button
+                @endif
+            </div>
         </form>
         @endif
 
@@ -81,7 +88,7 @@
             @endif
 
 
-            @if(auth()->user()->isMaticen())
+            @if(auth()->user()->isMaticen()&&$user->id===auth()->user()->id)
                 <center>
                 <h1>Pacienti</h1>
                 <table class="table table-bordered" style="width:40%; margin-top:10px; text-align:center;">
@@ -99,6 +106,7 @@
                 </table>
                     </center>
             @endif
+
             </div>
         </div>
     @endsection

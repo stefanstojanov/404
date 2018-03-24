@@ -314,6 +314,10 @@ nav{
     margin-bottom:15px;
 }
 
+.d-flex a:hover{
+    text-decoration:none;
+}
+
 .register_pair label{
     margin-right:15px;
     width:25%;

@@ -1,18 +1,20 @@
 @extends('layouts.app')
+@include('layouts.nav')
 @section('content')
 
-    <div class="container mt-4">
+    <div class="container" style="margin-top:100px;">
         <div class="row col-md-12">
             <h1>Inbox</h1>
         </div>
         <br>
         <div class="row">
+            <div class="col-md-3">
             @include('messages.box')
-
+            </div>
             <div class="form-group col-md-9"
                  style="background:white;
-                        border:1px solid #e3e3e3;
-                        box-shadow:1px 1px 1px #e3e3e3;
+                        border:1px solid #00a4a2;
+                        box-shadow:1px 1px 1px #00a4a2;
                         border-radius:3px;">
 
                 <div class="row mt-3">

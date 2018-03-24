@@ -9,7 +9,7 @@
                     <div class="card-header" style="background-color:#00a4a2;color:white;">Register</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" id="register-form" style="width:100%;">
+                        <form method="POST" action="/vnesuvanje_na_pacient" id="register-form" style="width:100%;">
                             {{csrf_field()}}
                             <div class="register_pair" style="width:100%;margin-left:20px;" >
                                 <label>Ime</label>

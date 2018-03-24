@@ -40,6 +40,8 @@ class MessageController extends Controller
         $chat->user_id=$user;
         $chat->message_id=$message->id;
         $chat->save();
+
+        return redirect('/inbox');
     }
 
 
@@ -60,7 +62,7 @@ class MessageController extends Controller
             foreach($chats as $chat)
             {
                 $chat->chats_date=Carbon::parse($chat->chats_date)->diffForHumans();
-                $chat->text=decrpyt($chat->text);
+                $chat->text=decrypt($chat->text);
             }
 
 
