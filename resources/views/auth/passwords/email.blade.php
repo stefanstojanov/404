@@ -34,7 +34,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn" style="background-color:#00a4a2;color:white;">
-                                    Resetirajte ja vasata lozinka
+                                    {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>

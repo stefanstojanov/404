@@ -6,10 +6,10 @@
 <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%;">
 <table class="table table-bordered" style="width:40%; margin-top:10px">
     <tr style="background-color:#00a4a2; color:white">
-    <th>Grad</th>
-    <th>Ime na laboratorijata</th>
-    <th>Kreirano na</th>
-        <th>Pacient</th>
+    <th>Град</th>
+    <th>Име на лабораторијата</th>
+    <th>Краирано на</th>
+        <th>Корисник</th>
     </tr>
 
     <tr>
@@ -22,10 +22,10 @@
     
 <table class="table table-bordered" style="width:40%; margin-top:10px">
     <tr style="background-color:#00a4a2; color:white">
-    <th>Stavka</th>
-    <th>Vrednost</th>
-    <th>Merna edinica</th>
-    <th>Granici</th>
+    <th>Ставка</th>
+    <th>Вредност</th>
+    <th>Мерна единица</th>
+    <th>Мин-Макс</th>
 
     </tr>
 @foreach($stavki as $stavka)
