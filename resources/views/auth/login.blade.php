@@ -1,72 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Login</div>
-
-                <div class="card-body">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;height:100%;">
+            <div class="card" style="width:40%;box-shadow:2px 2px 5px 0.05px #00a4a2;border:1px solid #00a4a2;">
+                <div class="card-header" style="color:white;background-color:#00a4a2;">Login</div>
+                <!--<div style="background-image:url({{asset('/images/login.jpg')}});background-size:100% 100%;height:100px;width:150px;margin-left:auto;margin-right:auto;margin-top:30px;background-repeat:no-repeat;border-radius:30%;border:1px solid #00a4a2;">
+                </div>
+                <hr style="background-color:#00a4a2;">-->
+                <div class="card-body" style="padding:25px;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="login_pair" style="margin-bottom:15px;">
+                                <label for="email">Емаил</label>
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="login_pair" style="margin-bottom:10px;">
+                                <label for="password">Лозинка</label>
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                            </div>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                        <div class="login_pair">
+                                <div class="checkbox" style="width:50%;margin-right:20px;" align="right">
+                                    <label style="width:100%;margin-bottom:20px;">
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Запомни ме
                                     </label>
                                 </div>
-                            </div>
+                            <a href="{{ route('password.request') }}" style="width:50%;">
+                                Рестертирај ја лозинката
+                            </a>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-register">
-                                    {{ __('Login') }}
+                        <div style="width:100%; text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:center;">
+                                <button type="submit" class="submit_message" style="margin-right:20px;">
+                                    Најави се
                                 </button>
+                                    <button class="submit_message">
+                                        <a href="{{ route('register') }}">Registracija</a>
+                                    </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
                         </div>
                     </form>
+
                 </div>
             </div>
-        </div>
     </div>
-</div>
-    @if(session('error'))
-    <h1 style="color:red;">{{session('error')}}</h1>
-    @endif
 @endsection

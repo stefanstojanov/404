@@ -19,7 +19,7 @@ class PorakaController extends Controller
     '+38978929077',
     array(
         "from" => $twilio_phone_number,
-        "body" => "Napravi go preku laravel"
+        "body" => "Pocituvani vasite rezultati od laboratorija se gotovi. Ve molime posetete go vasiot maticen ili proverete go vasiot profil za pregled na istite."
     )
 );
         return redirect('/');

@@ -1,32 +1,26 @@
 <div class="myNav" >
-    <a class="brand" href="{{ url('/') }}">
-        <img src="{{asset('/images/srce.png')}}">
-    </a>
-
-    @guest
-        <div>
-            <a class="nav-btn" href="{{ route('login') }}">Најава</a>
-            <a class="nav-btn" href="{{ route('register') }}">Регистрација</a>
-        </div>
-    @else
-
-    <div>
-            <a class="nav-btn" href="/profile/{{auth()->user()->id}}">{{ Auth::user()->first_name }}</a>
+    <div class="left-side">
+            <a class="navbtn" href="/profile/{{auth()->user()->id}}">
+                <i class="fa fa-heartbeat" style="font-size:21px;"></i> {{ Auth::user()->first_name }}
+            </a>
             @if(Auth::check() && auth()->user()->isLaborant())
-                <a class="nav-btn" href="/novi_rez">Vnesi rezultati</a>
-                <a class="nav-btn" href="/svoi_rez">Tvoi vnesovi</a>
+                <a class="navbtn" href="/novi_rez"><i class="fa fa-files-o" style="font-size:21px;"></i> Vnesi rezultati</a>
+                <a class="navbtn" href="/svoi_rez"><i class="fa fa-clipboard" style="font-size:21px;"></i> Tvoi vnesovi</a>
             @endif
 
             @if(Auth::check() && auth()->user()->isPacient())
-                <a class="nav-btn" href="/new_msg/{{auth()->user()->getMaticen()->id}}">Kontaktiraj maticen</a>
-                <a class="nav-btn" href="/svoi_rez">Istorija na rezultati</a>
+                <a class="navbtn" href="/new_msg/{{auth()->user()->getMaticen()->id}}">
+                    <i class="fa fa-envelope-o" style="font-size:21px;"></i> Kontaktiraj maticen
+                </a>
+                <a class="navbtn" href="/svoi_rez">
+                    <i class="fa fa-history" style="font-size:21px;"></i> Istorija na rezultati
+                </a>
             @endif
-
-            <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Одјави се</a>
+    </div>
+            <a class="navbtn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out" style="font-size:21px;"></i>Одјави се</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-     </div>
-    @endguest
+
 </div>

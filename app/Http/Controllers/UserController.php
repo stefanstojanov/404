@@ -11,6 +11,11 @@ use DB;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('maticen',['only'=>['vnesi_pacient','vnesuvanje_na_pacient','edit','update']]);
+    }
+
     public function index($user){
         $user=User::find($user);
         $pendings=User::where('approved','=','1')->get();
@@ -24,7 +29,7 @@ class UserController extends Controller
                         ->select('users.first_name as name','users.id as id')
                         ->get();
 
-        return view('profile.index',compact('user','pendings','results','items','pacienti'));
+        return view('profile.index',compact('user','pendings','results','items','pacienti','institution'));
 
     }
 
@@ -93,7 +98,55 @@ class UserController extends Controller
             ]);
 
     }
-    
+
+    public function edit($id){
+        $user=User::find($id);
+        $maticen=DB::table('users')
+                    ->join('ima_maticen','users.id','=','ima_maticen.maticen_id')
+                    ->where('ima_maticen.pacient_id','=',$user->id)
+                    ->first();
+        if($maticen->id!==auth()->user()->id)
+            return redirect('/');
+        else{
+        $institutions=Institution::all();
+        return view('profile.edit',compact('user','institutions'));
+        }
+    }
+
+    public function update($id){
+        $user=User::find($id);
+        $address=$user->address;
+        if($user->address->city!==request('city')||$user->address->city!==request('street'))
+        {
+            Address::create([
+                'city'=>request('city'),
+                'street'=>request('street')
+            ]);
+            $address=Address::getLast();
+        }
+        $institution=request('institution');
+        if(request('new_inst_confirm')==="new")
+        {
+            Address::create(['street'=>request('inst_address'),'city'=>request('inst_city')]);
+            $address_inst_id=Address::getLast();
+
+            Institution::create(['name'=>request('inst_name'),'address_id'=>$address_inst_id,]);
+            $institution=Institution::getLast();
+        }
+        User::where('id','=',$id)->update([
+            'first_name'=>request('име'),
+            'last_name'=>request('last_name'),
+            'mobile'=>request('mobile'),
+            'EMBG'=>request('EMBG'),
+            'email'=>request('email'),
+            'gender'=>request('gender'),
+            'date_born'=>request('date_born'),
+            'address_id'=>$address,
+            'institution_id'=>$institution
+        ]);
+
+        return redirect('/');
+    }
     
 
 }

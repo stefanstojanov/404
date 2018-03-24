@@ -33,14 +33,3 @@ function smeni_pacient(maticen){
     });
 }
 
-/*
-$('#maticen').on('change',function(){
-    alert("pero");
-    $('#pacient').each(function(){
-        console.log($(this).id);
-        if($(this).id!==$('#maticen:selected').id)
-        {
-            $(this).attr("hidden");
-        }
-    });
-});*/

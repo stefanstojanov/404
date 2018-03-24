@@ -1,6 +1,6 @@
 @if(!empty($stavki))
 @foreach($stavki as $stavka)
-    <p>{{$stavka->name}}</p>
+    <a href="/item/{{$stavka->id}}">{{$stavka->name}}</a>
     <p>{{$stavka->value}}</p>
     @endforeach
     @endif

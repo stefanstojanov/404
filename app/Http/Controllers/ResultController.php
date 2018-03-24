@@ -22,6 +22,28 @@ class ResultController extends Controller
         return view('results.create',compact('items','maticni','pacienti'));
     }
 
+    public function edit($id){
+        $result=Result::find($id);
+        $stavki=DB::table('values')
+            ->join('results','values.result_id','=','results.id')
+            ->join('items','values.item_id','=','items.id')
+            ->where('values.result_id','=',$result->id)
+            ->select('values.id as id','items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value','values.item_id as item_id')
+            ->get();
+
+        return view('results.edit',compact('stavki','result'));
+    }
+
+    public function update(Request $request){
+        $input=$request->all();
+        for($i=1;$i<=(count($input)/3);$i++) {
+                Value::where('result_id', '=', request('result_id'))
+                    ->where('item_id', '=', $input['item_id' . $i . ""])
+                    ->update(['value' => $input['value' . $i . ""]]);
+        }
+        return redirect("/result/".request('result_id'));
+    }
+
     public function store(Request $request){
         $id=auth()->user()->id;
         $result=Result::create([
@@ -53,7 +75,7 @@ class ResultController extends Controller
                     ->join('results','values.result_id','=','results.id')
                     ->join('items','values.item_id','=','items.id')
                     ->where('values.result_id','=',$result->id)
-                    ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value')
+                    ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value','items.id AS id')
                     ->get();
         return view('results.show',compact('stavki','result'));
     }

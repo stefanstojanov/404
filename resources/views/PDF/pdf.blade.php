@@ -7,7 +7,7 @@
 	<title>Резултати од лабораторија</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
-<body style="font-family:DejaVuSans;">
+<body>
 <h1>
     <center>
         Rezultati od laboratorija

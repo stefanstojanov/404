@@ -2,34 +2,34 @@
     @section('content')
 
         <div class="profile-container">
-            <div class="profile-card">
+            <a class="profile-card" style="bordeR:1px solid #00a4a2;">
                 <div class="label-pair">
                   <h3>Име :&nbsp</h3>
-                  <h3>{{$user->first_name}}</h3>
-                </div>
-                <div class="label-pair">
-                    <h3>Град : &nbsp</h3>
-                    <h3>{{$user->address->city}}</h3>
+                  <h3 style="margin-right:50px;">{{$user->first_name}}</h3>
+                    <h3>Презиме :&nbsp</h3>
+                    <h3>{{$user->last_name}}</h3>
                 </div>
                 <div class="label-pair">
                     <h3>ЕМБГ : &nbsp</h3>
-                    <h3>{{$user->EMBG}}</h3>
+                    <h3 style="margin-right:50px;">{{$user->EMBG}}</h3>
+                    <h3>Емаил : &nbsp</h3>
+                    <h3  style="margin-right:20px;">{{$user->email}}</h3>
                 </div>
                 <div class="label-pair">
+                    <h3>Тип на профил : &nbsp</h3>
+                    <h3>{{$user->type}}</h3>
+                </div>
+                <div class="label-pair">
+                    <h3>Град : &nbsp</h3>
+                    <h3 style="margin-right:50px;">{{$user->address->city}}</h3>
                     <h3>Дата на раѓање : &nbsp</h3>
                     <h3>{{$user->created_at->toFormattedDateString()}}</h3>
                 </div>
                 <div class="label-pair">
                     <h3>Осигуран преку : &nbsp</h3>
-                    <h3>{{$user->institution->name}}</h3>
-                </div>
-                <div class="label-pair">
-                    <h3>Мобилен : &nbsp</h3>
+                    <h3 style="margin-right:50px;">{{$user->institution->name}}</h3>
+                    <h3 >Мобилен : &nbsp</h3>
                     <h3>{{$user->mobile}}</h3>
-                </div>
-                <div class="label-pair">
-                    <h3>Емаил : &nbsp</h3>
-                    <h3>{{$user->email}}</h3>
                 </div>
 
 
@@ -64,6 +64,7 @@
                 @foreach($pacienti as $pacient)
                     <p>{{$pacient->name}}</p>
                     <a href="/new_msg/{{$pacient->id}}">Kontaktiraj pacient</a>
+                     <a href="/edit_pacient/{{$pacient->id}}">Izmeni pacient</a>
                     @endforeach
             @endif
             </div>
