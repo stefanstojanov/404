@@ -77,7 +77,16 @@ class ResultController extends Controller
                     ->where('values.result_id','=',$result->id)
                     ->select('items.name AS name','items.max as max','items.min as min','items.measure as measure','results.created_at as created_at','values.value as value','items.id AS id')
                     ->get();
-        return view('results.show',compact('stavki','result'));
+        
+        $laboratorija=DB::table('results')
+                        ->join('users','results.laborant_id','=','users.id')
+                        ->join('institutions','users.institution_id','=','institutions.id')
+                        ->join('addresses','institutions.address_id','=','addresses.id')
+                        ->where('results.id','=',$result->id)
+                        ->select('institutions.name as institucija','addresses.city as city')
+                        ->first();
+        
+        return view('results.show',compact('stavki','result','laboratorija'));
     }
 
     public function svoi(){
