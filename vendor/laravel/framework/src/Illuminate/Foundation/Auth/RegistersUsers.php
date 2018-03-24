@@ -60,7 +60,8 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
-        //
+        if($user->approved==='1')
+            Auth::logout();
     }
     
 }

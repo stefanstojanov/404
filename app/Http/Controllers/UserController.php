@@ -65,9 +65,6 @@ class UserController extends Controller
             $institution=Institution::getLast();
         }
 
-        /*$this->validate(request()[
-
-        ]);*/
         
         $user=User::create([
             'first_name' => request('име'),
@@ -82,7 +79,8 @@ class UserController extends Controller
             'EMBG'=>request('EMBG'),
             'institution_id'=>$institution,
             'address_id'=>$address_id,
-            'type'=>'пациент'
+            'type'=>'пациент',
+            'approved'=>'2',
         ]);
 
             DB::table('ima_maticen')->insert([

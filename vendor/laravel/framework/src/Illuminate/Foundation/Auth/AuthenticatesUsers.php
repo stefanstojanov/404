@@ -103,7 +103,8 @@ trait AuthenticatesUsers
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
-
+        if(Auth::check())
+            redirect('profile/'.auth()->user()->id);
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
 
