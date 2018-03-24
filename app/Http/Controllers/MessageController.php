@@ -60,6 +60,7 @@ class MessageController extends Controller
             foreach($chats as $chat)
             {
                 $chat->chats_date=Carbon::parse($chat->chats_date)->diffForHumans();
+                $chat->text=decrpyt($chat->text);
             }
 
 
@@ -67,7 +68,7 @@ class MessageController extends Controller
             {
                 Message::where('id','=',$id)->update(['opened'=>'opened']);
             }
-
+            $message->title=decrypt($message->title);
             $count=Message::where('to_user','=',$user->id)->where('opened','=',NULL)->count();
 
             return view('messages.show',compact('chats','message','count','image'));
@@ -92,6 +93,7 @@ class MessageController extends Controller
         foreach($messages as $message)
         {
             $message->created_at=Carbon::parse($message->created_at)->diffForHumans();
+            $message->title=decrypt($message->title);
         }
 
         return view('messages.index',compact('messages','count','from'));
@@ -112,6 +114,7 @@ class MessageController extends Controller
         foreach($messages as $message)
         {
             $message->created_at=Carbon::parse($message->created_at)->diffForHumans();
+            $message->title=decrypt($message->title);
         }
 
         return view('messages.sent',compact('messages','count','counter'));
