@@ -5,6 +5,7 @@
             <div class="background">
                 <div class="session_pair">
                     @if(Auth::check())
+                    @include('layouts.nav')
                         @endif
                     <div class="img_pair">
                         <img src="{{asset('/images/srce.png')}}">
@@ -25,7 +26,11 @@
                     <img src="{{asset('/images/resize.png')}}" onmouseenter="hide_div()" onmouseleave="hide_div()">
                     <div id="kire">
                         <h6>Zosto nas ? </h6>
-                        <p>Because us thats why</p>
+                        <ul style="padding-right:5px;">
+                            <li>Brzi rezultati</li>
+                            <li>Optimiziran pominat pat do niv</li>
+                            <li>Efikasna statistika na istite</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -33,7 +38,10 @@
                     <img src="{{asset('/images/reach.png')}}" onmouseenter="hide_div()" onmouseleave="hide_div()">
                     <div id="kire">
                         <h6>Kako do nas ? </h6>
-                        <p>Because us thats why</p>
+                        <ul style="padding-right:5px;">
+                            <li>Posetete go vasiot maticen</li>
+                            <li>Podnesete baranje do maticniot za korisnicki profil</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -41,10 +49,12 @@
                     <img src="{{asset('/images/we.png')}}" onmouseenter="hide_div()" onmouseleave="hide_div()">
                     <div id="kire">
                         <h6>Koi sme nie ? </h6>
-                        <p>Because us thats why</p>
+                        <ul style="padding-right:5px;">
+                            <li>Posetete go vasiot maticen</li>
+                            <li>Podnesete baranje do maticniot za korisnicki profil</li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
 
             @if(!empty($message))

@@ -153,15 +153,15 @@ html,body{
     color:#00a4a2;
     border-radius:5px;
     align-items:center;
-    -webkit-transition: max-height 2s;
-    -moz-transition: max-height 2s;
-    -ms-transition: max-height 2s;
-    -o-transition: max-height 2s;
-    transition: max-height 2s;
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    -ms-transition: max-height 1s;
+    -o-transition: max-height 1s;
+    transition: max-height 1s;
     overflow:hidden;
 }
 .package:hover{
-    max-height:400px;
+    max-height:350px;
     cursor:pointer;
 }
 
