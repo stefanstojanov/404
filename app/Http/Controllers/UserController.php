@@ -94,16 +94,15 @@ class UserController extends Controller
 
     public function edit($id){
         $user=User::find($id);
-        $maticen=DB::table('users')
-                    ->join('ima_maticen','users.id','=','ima_maticen.maticen_id')
-                    ->where('ima_maticen.pacient_id','=',$user->id)
-                    ->first();
-        if($maticen->id!==auth()->user()->id)
+        $maticen=DB::table('ima_maticen')->where('pacient_id','=',$user->id)->select("maticen_id as id")->first();
+        if($maticen->id!=auth()->user()->id)
             return redirect('/');
         else{
         $institutions=Institution::all();
         return view('profile.edit',compact('user','institutions'));
         }
+        //print_r($user->id);
+        
     }
 
     public function update($id){

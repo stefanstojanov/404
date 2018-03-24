@@ -63,7 +63,7 @@
                             <select name="type" class="form-control">
                                 <option value="Матичен">Maticen</option>
                                 <option value="Лаборант">Laborant</option>
-                                <option value="Администратор">Administrator</option>
+                                
                             </select>
                         </div>
                         <label style="width:100%;margin-bottom:0;" align="left">Institucija</label>

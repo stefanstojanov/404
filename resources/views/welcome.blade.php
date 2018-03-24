@@ -9,7 +9,7 @@
                         @endif
                     <div class="img_pair">
                         <img src="{{asset('/images/srce.png')}}">
-                        <h5>eBolnica e proekt na timot 404, namenet za olesnuvanje na zdravstvenite lica, a pred se i pacientite vo pogled na prevzemanjeto na laboratoriskite rezultati i polesna evidencija pomegu niv.</h5>
+                        <h5>eLab e proekt na timot 404, namenet za olesnuvanje na zdravstvenite lica, a pred se i pacientite vo pogled na prevzemanjeto na laboratoriskite rezultati i polesna evidencija pomegu niv.</h5>
                     </div>
                     <div class="a_pair">
                         @if(!Auth::check())
